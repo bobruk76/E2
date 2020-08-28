@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+
+        <div class="col-10">
+
+                    <div class="card">
+
+                        <div class="card-img">
+                            {% if object.photo %}
+                            <img class="rounded-pill img-fluid" src="{{ object.photo.url }}" alt="">
+                            {% endif %}
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">Кличка: {{object.name}}</li>
+                                <li class="list-group-item">Возраст: {{object.age}}</li>
+                                <li class="list-group-item">Порода: {{object.breed}}</li>
+                            </ul>
+						</div>
+					</div>
+        </div>
+
+    </div>
+{% endblock %}
