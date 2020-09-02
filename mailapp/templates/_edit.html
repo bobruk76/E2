@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+		<div class="container col-10 mx-auto">
+			<h1></h1>
+			<div>
+			<form method="post">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<input type="submit" class="btn btn-success col-4" value="Сохранить">
+			</form>
+			<form action="delete/" class="justify-content-start mt-1">
+				<button class="btn btn-outline-danger col-4" >Удалить</button>
+			</form>
+			</div>
+		</div>
+		<script src="{% static 'scr/scripts.js' %}"></script>
+{% endblock %}
