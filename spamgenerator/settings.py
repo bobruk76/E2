@@ -139,3 +139,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+SENDGRID_TEMPLATE_ID = os.getenv('SENDGRID_TEMPLATE_ID')

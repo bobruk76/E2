@@ -5,8 +5,9 @@ from django.utils.translation import gettext as _
 class Task(models.Model):
     text = models.TextField
     timer = models.ImageField(default=0)
-    completion = models.NullBooleanField(default=None,
-                                         verbose_name=_("Задание выполнено"))
+    is_completed = models.BooleanField("выполнено", default=False)
+    created = models.DateTimeField(auto_now_add=True)
+
 
     class Meta:
         verbose_name = 'Список задач'
