@@ -1,44 +1,36 @@
 import os
+import threading
 
-import sendgrid
+from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
+from spamgenerator.settings import SENDGRID_API_KEY
 
 
-data = {
-    "user":
-        {
-            "name": "olga",
-            "last_name": "sergeeva"
-        }
-}
-
-def send_email(from_email, to_email, template_id, template_data):
-
-    sg = sendgrid.SendGridAPIClient(SENDGRID_API_KEY)
+def send_email(from_email, to_email, content):
+    # sg = sendgrid.SendGridAPIClient(SENDGRID_API_KEY)
+    # message = Mail(
+    # from_email=from_email,
+    # to_emails=to_email,
+    # )
+    # message.template_id = template_id
+    # message.dynamic_template_data = template_data
+    # response = sg.send(message)
     message = Mail(
-    from_email=from_email,
-    to_emails=to_email,
-    )
-    message.template_id = template_id
-    message.dynamic_template_data = template_data
-    response = sg.send(message)
+        from_email=from_email,
+        to_emails=to_email,
+        subject='Test sending from E2',
+        html_content='<strong>{}</strong>'.format(content))
+    try:
+        sg = SendGridAPIClient(SENDGRID_API_KEY)
+        response = sg.send(message)
+        print(response.code)
+        return response
+    except Exception as e:
+        print(e)
+        return e
 
-if __name__ == '__main__':
-    send_email(from_email='from_template@gmail.com', to_email='your_address@gmail.com', 
-           template_id=SENDGRID_TEMPLATE_ID, template_data=data)
-
-
-# message = Mail(
-#     from_email='from_email@example.com',
-#     to_emails='to@example.com',
-#     subject='Sending with Twilio SendGrid is Fun',
-#     html_content='<strong>and easy to do anywhere, even with Python</strong>')
-# try:
-#     sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
-#     response = sg.send(message)
-#     print(response.status_code)
-#     print(response.body)
-#     print(response.headers)
-# except Exception as e:
-#     print(e.message)
+def add_email_to_threading(from_email, to_email, content, timer):
+    print('{}--{}'.format(content, timer))
+    t = threading.Timer(timer, send_email, args=(from_email, to_email, content,))
+    t.start()

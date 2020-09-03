@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext as _
 
 # Create your models here.
@@ -15,3 +16,6 @@ class Task(models.Model):
 
     def __str__(self):
         return '{} -- {}'.format(self.text, self.created)
+
+    def get_absolute_url(self):
+        return reverse('task', kwargs={'pk': self.pk})
