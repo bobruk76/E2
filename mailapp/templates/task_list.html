@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+    <h1 class="text-center">Количество задач: {{ object_list|length }}</h1>
+        <div class="list-group col-6 mx-auto">
+            <form action="create" class="justify-content-start mt-1">
+                <button class="btn btn-outline-success col-4" >Новая</button>
+            </form>
+            {% for task in object_list %}
+                <a class="list-group-item list-group-item-action" href="{{task.id}}/"> {{ task }}
+                    <span class="badge badge-primary badge-pill">{{ task.timer }}</span>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

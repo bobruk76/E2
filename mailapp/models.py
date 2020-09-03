@@ -3,9 +3,9 @@ from django.utils.translation import gettext as _
 
 # Create your models here.
 class Task(models.Model):
-    text = models.TextField
-    timer = models.ImageField(default=0)
-    is_completed = models.BooleanField("выполнено", default=False)
+    text = models.TextField(default="", verbose_name=_("Текст сообщения"))
+    timer = models.SmallIntegerField(default=5, verbose_name=_("Отсрочка отправки"))
+    is_completed = models.BooleanField(_("выполнено"), default=False)
     created = models.DateTimeField(auto_now_add=True)
 
 
@@ -14,4 +14,4 @@ class Task(models.Model):
         verbose_name_plural = 'Список задач'
 
     def __str__(self):
-        return f'{self.text}'
+        return '{} -- {}'.format(self.text, self.created)
