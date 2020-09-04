@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+		<div class="container col-10 mx-auto">
+			<h1 class="text-center">Внимание запись будет удалена!</h1>
+			<form class="mt-5" method="post">{% csrf_token %}
+				<input type="submit" class="btn btn-outline-danger col-4" value="Удалить">
+			</form>
+		</div>
+		<script src="{% static 'scr/scripts.js' %}"></script>
+{% endblock %}

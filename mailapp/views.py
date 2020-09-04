@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, TemplateView, UpdateView
+from django.views.generic import ListView, CreateView, TemplateView, UpdateView, DeleteView
 
 from mailapp.models import Task
 from mailapp.sendgrid_send_email import send_email, add_email_to_threading
@@ -39,3 +39,8 @@ class TaskUpdate(UpdateView):
         task = form.save(commit=False)
         add_email_to_threading("vladimir.m.polyakov@gmail.com", task.to_email, task.text, task.timer)
         return super(TaskUpdate, self).form_valid(form)
+
+class TaskDelete(DeleteView):
+    model = Task
+    success_url = reverse_lazy('mailapp:task_list')
+    template_name = '_delete.html'
