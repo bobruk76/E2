@@ -17,9 +17,6 @@ from pathlib import Path
 import dj_database_url
 
 
-import django_heroku
-
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 #BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -121,7 +118,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
 LANGUAGE_CODE = 'ru-RU'
-django_heroku.settings(locals())
+try:
+    import django_heroku
+    django_heroku.settings(locals())
+except:
+    pass
 
 TIME_ZONE = 'UTC'
 
