@@ -20,7 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="701dc803-5b58-4102-9351-41df43e82e1a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailapp/sendgrid_send_email.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailapp/sendgrid_send_email.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailapp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,15 +51,15 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mailapp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../delayed_email_sending_client" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/mailapp" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/spamgenerator" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mailapp" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -84,10 +87,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1599048093695">
+    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1599143774197">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1599048093695" />
+    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1599143774197" />
     <state x="606" y="167" width="770" height="780" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599047285472">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
