@@ -24,10 +24,8 @@ def send_email(from_email, to_email, content):
     try:
         sg = SendGridAPIClient(SENDGRID_API_KEY)
         response = sg.send(message)
-        print(response.code)
         return response
     except Exception as e:
-        print(e)
         return e
 
 def add_email_to_threading(from_email, to_email, content, timer):

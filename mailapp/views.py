@@ -26,7 +26,7 @@ class TaskCreate(CreateView):
 
     def form_valid(self, form):
         task = form.save(commit=False)
-        add_email_to_threading("boruk76@yandex.ru", task.to_email, task.text, task.timer)
+        add_email_to_threading("vladimir.m.polyakov@gmail.com", task.to_email, task.text, task.timer)
         return super(TaskCreate, self).form_valid(form)
 
 class TaskUpdate(UpdateView):
@@ -37,5 +37,5 @@ class TaskUpdate(UpdateView):
 
     def form_valid(self, form):
         task = form.save(commit=False)
-        add_email_to_threading("boruk76@yandex.ru", task.to_email, task.text, task.timer)
+        add_email_to_threading("vladimir.m.polyakov@gmail.com", task.to_email, task.text, task.timer)
         return super(TaskUpdate, self).form_valid(form)
