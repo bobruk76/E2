@@ -6,5 +6,11 @@
 * создать виртуальное окружение `python -m venv venv`;
 * активировать его `source venv/bin/activate` (или `virtualenv venv`)
 * установить зависимости `requirements pip install -r requirements.txt`;
-* переменную окружения сделать равно текущей директории (текущую директорию можно узнать выполнив команду `pwd`) PYTHONPATH: `export PYTHONPATH=current_folder` (или `set PYTHONPATH=current_folder`)
-* Запустить приложение можно с помощью команды `python app.py`.
+* необходимо задать переменные окружения:
+    SECRET_KEY=...
+    DATABASE_URL=...
+    SENDGRID_API_KEY=... 
+* Запустить приложение можно с помощью команды `python manage.py runserver`.
+
+PS Приложение сыровато((( Сразу сорри))). Только основной функционал реализован.
+Письма должны отправляться мне)))

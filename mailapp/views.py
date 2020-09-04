@@ -19,23 +19,23 @@ class TaskList(ListView):
 
 class TaskCreate(CreateView):
     model = Task
-    fields = ['text', 'timer']
+    fields = ['text', 'timer', 'to_email']
     # form_class = TaskSessionForm
     success_url = reverse_lazy('mailapp:task_list')
     template_name = '_edit.html'
 
     def form_valid(self, form):
         task = form.save(commit=False)
-        add_email_to_threading("boruk76@yandex.ru", "boruk76@yandex.ru", task.text, task.timer)
+        add_email_to_threading("boruk76@yandex.ru", task.to_email, task.text, task.timer)
         return super(TaskCreate, self).form_valid(form)
 
 class TaskUpdate(UpdateView):
     model = Task
-    fields = ['text', 'timer']
+    fields = ['text', 'timer', 'to_email']
     success_url = reverse_lazy('mailapp:task_list')
     template_name = '_edit.html'
 
     def form_valid(self, form):
         task = form.save(commit=False)
-        add_email_to_threading("boruk76@yandex.ru", "boruk76@yandex.ru", task.text, task.timer)
+        add_email_to_threading("boruk76@yandex.ru", task.to_email, task.text, task.timer)
         return super(TaskUpdate, self).form_valid(form)
